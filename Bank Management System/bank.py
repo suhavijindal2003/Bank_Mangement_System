@@ -9,11 +9,13 @@ class Bank:
        
     #  createing a transaction table for each user
     def create_transaction_table(self):
-        db_query(f"CREATE TABLE IF NOT EXISTS {self.__username}_Bank_transaction "
-                 f"( timedate VARCHAR(30),"
-                 f"account_number INTEGER,"
-                 f"remarks VARCHAR(30),"
-                 f"amount INTEGER )")
+     db_query(f"CREATE TABLE IF NOT EXISTS {self.__username}_transaction "
+             f"( timedate VARCHAR(30),"
+             f"account_number INTEGER,"
+             f"remarks VARCHAR(30),"
+             f"amount INTEGER )")
+
+    
     def balanceequiry(self):
         temp = db_query(
             f"SELECT balance FROM customers WHERE username = '{self.__username}';")
@@ -53,8 +55,8 @@ class Bank:
             print(
                 f"{self.__username} Amount is Sucessfully Withdraw from Your Account {self.__account_number}")
 
-        def fundtransfer(self, receive, amount):
-            temp = db_query(
+    def fundtransfer(self, receive, amount):
+        temp = db_query(
             f"SELECT balance FROM customers WHERE username = '{self.__username}';")
         if amount > temp[0][0]:
             print("Insufficient Balance Please Deposit Money")

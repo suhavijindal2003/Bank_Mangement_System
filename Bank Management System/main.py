@@ -5,18 +5,23 @@ print("Welcome to Banking Project")
 
 while True:
     try:
-        register = int(input("1. SignUp\n2. SignIn\n"))
-        if register == 1:
-            SignUp()
-        elif register == 2:
-            user = SignIn()
-            status = True
-            
+        register = int(input("1. SignUp\n"
+                             "2. SignIn"))
+        if register == 1 or register == 2:
+            if register == 1:
+                SignUp()
+            if register == 2:
+                user = SignIn()
+                status = True
+                break
         else:
             print("Please Enter Valid Input From Options")
 
     except ValueError:
         print("Invalid Input Try Again with Numbers")
+
+account_number = db_query(
+    f"SELECT account_number FROM customers WHERE username = '{user}';")
 
 while status:
     print(f"Welcome {user.capitalize()} Choose Your Banking Service\n")
