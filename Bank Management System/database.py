@@ -16,7 +16,6 @@ def db_query(query):
     result = cursor.fetchall()
     return result
 
-
 def create_table():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS customers (
