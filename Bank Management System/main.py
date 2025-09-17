@@ -17,6 +17,7 @@ while True:
 
     except ValueError:
         print("Invalid Input Try Again with Numbers")
+
 while status:
     print(f"Welcome {user.capitalize()} Choose Your Banking Service\n")
     try:
